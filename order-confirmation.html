@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - Quality Food</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>Quality Food - Quality Life</h2>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="cart.html" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        Cart (<span id="cart-count">0</span>)
+                    </a>
+                    <a href="login.html" class="nav-link" id="auth-link">Login</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="confirmation-container">
+                <div class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <h1>Order Placed Successfully!</h1>
+                    <p>Thank you for your order. Your delicious food is being prepared.</p>
+                </div>
+
+                <div class="order-details">
+                    <h3>Order Details</h3>
+                    <div class="order-info">
+                        <p><strong>Order ID:</strong> <span id="order-id">Loading...</span></p>
+                        <p><strong>Payment Method:</strong> <span id="payment-method">Loading...</span></p>
+                        <p><strong>Estimated Delivery:</strong> <span id="delivery-time">30-45 minutes</span></p>
+                        <p><strong>Total Amount:</strong> ₹<span id="order-total">0</span></p>
+                    </div>
+                </div>
+
+                <div class="delivery-tracking">
+                    <h3>Delivery Status</h3>
+                    <div class="delivery-status">
+                        <div class="delivery-step active">
+                            <i class="fas fa-check"></i>
+                            <span>Order Confirmed</span>
+                        </div>
+                        <div class="delivery-step" id="preparing-step">
+                            <i class="fas fa-utensils"></i>
+                            <span>Preparing</span>
+                        </div>
+                        <div class="delivery-step" id="delivery-step">
+                            <i class="fas fa-motorcycle"></i>
+                            <span>Out for Delivery</span>
+                        </div>
+                        <div class="delivery-step" id="delivered-step">
+                            <i class="fas fa-home"></i>
+                            <span>Delivered</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="delivery-boy">
+                    <h3>Your Delivery Partner</h3>
+                    <div class="delivery-info">
+                        <div class="delivery-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="delivery-details">
+                            <h4 id="delivery-boy-name">Rahul Kumar</h4>
+                            <p>Phone: <span id="delivery-phone">+91 98765 43210</span></p>
+                            <p class="delivery-message" id="delivery-message">Your order is confirmed and being prepared!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="track-order" class="btn-primary">Track Order</button>
+                    <a href="index.html" class="btn-secondary">Continue Shopping</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script>
+        // Load order confirmation data
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get current order data
+            const currentOrder = localStorage.getItem('currentOrder');
+            
+            if (currentOrder) {
+                const order = JSON.parse(currentOrder);
+                
+                // Update order details
+                document.getElementById('order-id').textContent = order.id;
+                document.getElementById('payment-method').textContent = order.paymentMethod;
+                document.getElementById('order-total').textContent = order.total;
+                
+                // Calculate and display delivery time
+                const deliveryTime = new Date(order.estimatedDelivery);
+                const now = new Date();
+                const diffMinutes = Math.ceil((deliveryTime - now) / (1000 * 60));
+                document.getElementById('delivery-time').textContent = `${diffMinutes} minutes`;
+                
+            } else {
+                // Fallback if no order data
+                const orderTotal = localStorage.getItem('orderTotal') || '0';
+                document.getElementById('order-total').textContent = orderTotal;
+                document.getElementById('order-id').textContent = 'QF' + Math.random().toString(36).substr(2, 9).toUpperCase();
+                document.getElementById('payment-method').textContent = 'Payment Completed';
+            }
+            
+            // Update cart count (should be 0 after order)
+            document.getElementById('cart-count').textContent = '0';
+            
+            // Simulate order tracking updates
+            setTimeout(() => {
+                document.getElementById('preparing-step').classList.add('active');
+                document.getElementById('delivery-message').textContent = 'Your food is being prepared with love!';
+            }, 3000);
+
+            setTimeout(() => {
+                document.getElementById('delivery-step').classList.add('active');
+                document.getElementById('delivery-message').textContent = 'Your delivery partner is on the way!';
+            }, 8000);
+            
+            // Track order button functionality
+            document.getElementById('track-order').addEventListener('click', function() {
+                alert('Order tracking feature will be available soon!\n\nYour order is being processed and will be delivered within the estimated time.');
+            });
+        });
+    </script>
+</body>
+</html>

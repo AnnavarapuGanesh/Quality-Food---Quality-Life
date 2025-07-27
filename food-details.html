@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Details - Quality Food</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>Quality Food - Quality Life</h2>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="cart.html" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        Cart (<span id="cart-count">0</span>)
+                    </a>
+                    <a href="login.html" class="nav-link" id="auth-link">Login</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="food-details-container">
+                <div class="food-image">
+                    <img id="food-img" src="" alt="Food Image">
+                </div>
+                <div class="food-info">
+                    <h1 id="food-name"></h1>
+                    <p id="food-description"></p>
+                    
+                    <div class="ingredients-section">
+                        <h3>Ingredients:</h3>
+                        <ul id="ingredients-list">
+                            <!-- Ingredients will be loaded here -->
+                        </ul>
+                    </div>
+                    
+                    <div class="nutrition-info">
+                        <h3>Nutritional Information:</h3>
+                        <div id="nutrition-details">
+                            <!-- Nutrition info will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <button id="find-shops-btn" class="btn-primary">Find Shops Selling This Item</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

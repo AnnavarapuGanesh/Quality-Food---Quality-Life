@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "name": "Pani Puri",
+        "description": "Crispy puris filled with spicy tangy water",
+        "price": 30,
+        "image": "https://via.placeholder.com/300x200?text=Pani+Puri",
+        "ingredients": ["Semolina puris", "Mint water", "Tamarind chutney", "Chickpeas", "Potatoes", "Onions", "Green chilies"],
+        "nutrition": {
+            "calories": 150,
+            "protein": "4g",
+            "carbs": "28g",
+            "fat": "3g"
+        }
+    }
+]

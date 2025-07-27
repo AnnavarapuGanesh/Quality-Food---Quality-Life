@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "name": "Sharma Ji's Street Food",
+        "rating": 4.5,
+        "distance": "0.5 km",
+        "price": 30,
+        "badges": ["premium", "fast"],
+        "deliveryTime": "15-20 min",
+        "phone": "+91 98765 43210"
+    }
+]

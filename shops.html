@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shops - Quality Food</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>Quality Food - Quality Life</h2>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="cart.html" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        Cart (<span id="cart-count">0</span>)
+                    </a>
+                    <a href="login.html" class="nav-link" id="auth-link">Login</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="shops-header">
+                <h1>Shops for <span id="food-name-header"></span></h1>
+                <div class="sort-options">
+                    <select id="sort-select">
+                        <option value="rating">Sort by Rating</option>
+                        <option value="distance">Sort by Distance</option>
+                        <option value="price">Sort by Price</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="shops-container">
+                <div class="shops-list">
+                    <div id="shops-grid">
+                        <!-- Shops will be loaded here -->
+                    </div>
+                </div>
+
+                <div class="payment-sidebar">
+                    <div class="payment-card">
+                        <h3>Quick Order</h3>
+                        <div class="selected-item">
+                            <img id="selected-food-img" src="" alt="">
+                            <div class="item-details">
+                                <h4 id="selected-food-name"></h4>
+                                <p id="selected-shop-name"></p>
+                                <div class="price">₹<span id="selected-price">0</span></div>
+                            </div>
+                        </div>
+                        <div class="quantity-control">
+                            <label>Quantity:</label>
+                            <div class="quantity-buttons">
+                                <button id="decrease-qty">-</button>
+                                <span id="quantity">1</span>
+                                <button id="increase-qty">+</button>
+                            </div>
+                        </div>
+                        <div class="total-amount">
+                            <strong>Total: ₹<span id="total-amount">0</span></strong>
+                        </div>
+                        <button id="add-to-cart-btn" class="btn-primary">Add to Cart</button>
+                        <button id="buy-now-btn" class="btn-secondary">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
